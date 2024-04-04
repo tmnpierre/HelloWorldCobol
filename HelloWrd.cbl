@@ -28,26 +28,29 @@
       *    *************************************************************
 
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. HelloWrd.
-       AUTHOR. Pierre. 
-      *    WRITTEN-DATE. 04/04/2024.
-      *    COMPILE-DATE. 04/04/2024.
+       PROGRAM-ID. hellowrd.
+       AUTHOR. pierre.
+
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-
       *    Déclare une variable pour stocker l'entrée utilisateur,
-      *    capable de contenir jusqu'à 25 caractères alphanumériques.
-       01 USER-INPUT PIC A(25).
+      *    capable de contenir jusqu'à 50 caractères alphanumériques.
+       01 USER-INPUT PIC A(50).
+
+      *    Déclare une variable booléenne pour contrôler la sortie de la
+      *    boucle.
+       01 EXIT-FLAG PIC 9 VALUE 0.
+           88 CONTINUE-LOOP VALUE 0.
+           88 EXIT-LOOP    VALUE 1.
 
        PROCEDURE DIVISION.
-
       *    Affiche un message de salutation initial.
            DISPLAY "Bonjour COBOL!".
 
-      *    Démarre une boucle qui continue jusqu'à ce que l'utilisateur 
-      *    saisisse "EXIT".
-           PERFORM UNTIL USER-INPUT = "EXIT"
+      *    Démarre une boucle qui continue tant que EXIT-FLAG indique de
+      *    continuer.
+           PERFORM UNTIL EXIT-LOOP
 
       *    Invite l'utilisateur à saisir un nom.
                 DISPLAY "Entrez un nom (ou 'EXIT' pour quitter) : "
@@ -55,12 +58,18 @@
       *    Enregistre l'entrée utilisateur dans la variable USER-INPUT.
                 ACCEPT USER-INPUT
 
+      *    Vérifie si l'utilisateur a saisi "EXIT" et met à jour 
+      *    EXIT-FLAG en conséquence.
+                IF USER-INPUT = "EXIT" THEN
+                    SET EXIT-LOOP TO TRUE
+                ELSE
       *    Affiche un message de salutation personnalisé avec l'entrée 
-      *    de l'utilisateur.   
-                DISPLAY "Bonjour ", USER-INPUT
-           
-      *    Fin de la boucle PERFORM. 
+      *    de l'utilisateur.
+                    DISPLAY "Bonjour ", USER-INPUT
+                END-IF
+
+      *    Fin de la boucle PERFORM.
            END-PERFORM.
 
       *    Termine l'exécution du programme.
-           STOP RUN. 
+           STOP RUN.

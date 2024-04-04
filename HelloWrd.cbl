@@ -63,4 +63,4 @@
            END-PERFORM.
 
       *    Termine l'exécution du programme.
-           STOP RUN.
+           STOP RUN. 

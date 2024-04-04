@@ -31,7 +31,6 @@
        PROGRAM-ID. hellowrd.
        AUTHOR. pierre.
 
-
        DATA DIVISION.
        WORKING-STORAGE SECTION.
       *    Déclare une variable pour stocker l'entrée utilisateur,
@@ -58,12 +57,15 @@
       *    Enregistre l'entrée utilisateur dans la variable USER-INPUT.
                 ACCEPT USER-INPUT
 
-      *    Vérifie si l'utilisateur a saisi "EXIT" et met à jour 
-      *    EXIT-FLAG en conséquence.
+      *    Convertit l'entrée utilisateur en majuscules.
+                MOVE FUNCTION UPPER-CASE(USER-INPUT) TO USER-INPUT
+
+      *    Vérifie si l'utilisateur a saisi "EXIT" (en majuscules) et 
+      *    met à jour EXIT-FLAG en conséquence.
                 IF USER-INPUT = "EXIT" THEN
                     SET EXIT-LOOP TO TRUE
                 ELSE
-      *    Affiche un message de salutation personnalisé avec l'entrée 
+      *    Affiche un message de salutation personnalisé avec l'entrée
       *    de l'utilisateur.
                     DISPLAY "Bonjour ", USER-INPUT
                 END-IF

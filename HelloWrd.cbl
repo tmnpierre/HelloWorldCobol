@@ -1,31 +1,36 @@
       *    *************************************************************
-      *    Ce programme COBOL est conçu pour illustrer les 
-      *    fonctionnalités
-      *    de base de la programmation COBOL en interagissant avec 
-      *    l'utilisateur.
+      *    Programme COBOL d'interaction continue avec l'utilisateur
       *    
-      *    Dans un premier temps, le programme va :
+      *    Ce programme illustre les fonctionnalités de base de la 
+      *    programmation COBOL en interagissant avec l'utilisateur via  
+      *    la console. Il démontre l'utilisation des instructions 
+      *    DISPLAY, ACCEPT, et des structures de contrôle comme les  
+      *    boucles et les conditions pour gérer les entrées utilisateur 
+      *    et contrôler le flux d'exécution du programme.
       *    
-      *    1. Afficher un message de salutation en console dès son 
-      *    exécution. Le message affiché sera : "Bonjour COBOL!".
-      * 
-      *    Pour aller plus loin, le programme va également :
+      *    Voici un aperçu des fonctionnalités implémentées :
       *    
-      *    2. Demander à l'utilisateur de saisir un message.
-      *    Cette fonctionnalité permet de saisir une entrée utilisateur
-      *    via la console.
+      *    1. Affichage d'un message de salutation initial 
+      *       ("Bonjour COBOL!") dès l'exécution du programme.
+      *    2. Saisie d'un nom par l'utilisateur, suivi de la
+      *       transformation de cette entrée en majuscules, illustrant
+      *        la manipulation de données de type chaîne.
+      *    3. Affichage d'un message de salutation personnalisé avec le 
+      *       nom saisi, démontrant l'interaction utilisateur-programme.
+      *    4. Option pour l'utilisateur de quitter le programme en 
+      *       saisissant "EXIT", ce qui montre l'utilisation de 
+      *       conditions pour contrôler le flux du programme.
+      *    5. Répétition des étapes 2 à 4 indéfiniment, créant un cycle
+      *       d'interaction continue, jusqu'à ce que l'utilisateur 
+      *       décide de quitter, mettant en œuvre des boucles pour le 
+      *       contrôle de flux.
       *    
-      *    3. Afficher le message saisi par l'utilisateur.
-      *    Ceci permet de confirmer que l'entrée de l'utilisateur a été
-      *    correctement reçue et traitée par le programme.
-      *    
-      *    4. Répéter les étapes 2 et 3 à l'infini, créant ainsi un 
-      *    cycle d'interaction continue avec l'utilisateur.
-      * 
-      *    Ce programme illustre l'utilisation des instructions DISPLAY,
-      *    ACCEPT et des boucles pour créer des interactions de base
-      *    avec l'utilisateur dans un programme COBOL.
+      *    Ce programme sert d'exemple introductif aux concepts de base 
+      *    de la programmation COBOL, en mettant en évidence 
+      *    l'importance des interactions utilisateur dans le 
+      *    développement de logiciels.
       *    *************************************************************
+
 
        IDENTIFICATION DIVISION.
        PROGRAM-ID. hellowrd.

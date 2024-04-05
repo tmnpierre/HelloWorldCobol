@@ -31,7 +31,6 @@
       *    développement de logiciels.
       *    *************************************************************
 
-
        IDENTIFICATION DIVISION.
        PROGRAM-ID. hellowrd.
        AUTHOR. pierre.

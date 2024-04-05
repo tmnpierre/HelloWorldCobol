@@ -41,19 +41,16 @@
       *    Déclare une variable pour stocker l'entrée utilisateur,
       *    capable de contenir jusqu'à 50 caractères alphanumériques.
        01 USER-INPUT PIC A(50).
-
-      *    Déclare une variable booléenne pour contrôler la sortie de la
-      *    boucle.
-       01 EXIT-FLAG PIC 9 VALUE 0.
-           88 CONTINUE-LOOP VALUE 0.
-           88 EXIT-LOOP    VALUE 1.
+          88 EXIT-LOOP VALUE "EXIT". 
+      *    Utilisation de la valeur spéciale "EXIT" pour contrôler la
+      *    boucle
 
        PROCEDURE DIVISION.
       *    Affiche un message de salutation initial.
            DISPLAY "Bonjour COBOL!".
 
-      *    Démarre une boucle qui continue tant que EXIT-FLAG indique de
-      *    continuer.
+      *    Démarre une boucle qui continue tant que l'utilisateur n'a 
+      *    pas saisi "EXIT".
            PERFORM UNTIL EXIT-LOOP
 
       *    Invite l'utilisateur à saisir un nom.
@@ -62,15 +59,15 @@
       *    Enregistre l'entrée utilisateur dans la variable USER-INPUT.
                 ACCEPT USER-INPUT
 
-      *    Convertit l'entrée utilisateur en majuscules.
+      *    Convertit l'entrée utilisateur en majuscules pour une 
+      *    comparaison uniforme.
                 MOVE FUNCTION UPPER-CASE(USER-INPUT) TO USER-INPUT
 
-      *    Vérifie si l'utilisateur a saisi "EXIT" (en majuscules) et 
-      *    met à jour EXIT-FLAG en conséquence.
-                IF USER-INPUT = "EXIT" THEN
-                    SET EXIT-LOOP TO TRUE
-                ELSE
-      *    Affiche un message de salutation personnalisé avec l'entrée
+      *    Vérifie si l'utilisateur a saisi "EXIT" (après conversion en 
+      *    majuscules).
+                IF NOT EXIT-LOOP
+
+      *    Affiche un message de salutation personnalisé avec l'entrée 
       *    de l'utilisateur.
                     DISPLAY "Bonjour ", USER-INPUT
                 END-IF
